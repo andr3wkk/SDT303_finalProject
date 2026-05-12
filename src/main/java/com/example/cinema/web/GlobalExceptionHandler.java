@@ -1,6 +1,7 @@
 package com.example.cinema.web;
 
 import com.example.cinema.exception.BadRequestException;
+import com.example.cinema.exception.BookingConflictException;
 import com.example.cinema.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -29,6 +30,16 @@ public class GlobalExceptionHandler {
         Map<String, Object> error = new HashMap<>();
         error.put("timestamp", LocalDateTime.now());
         error.put("status", 400);
+        error.put("error", ex.getMessage());
+        return error;
+    }
+
+    @ExceptionHandler(BookingConflictException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public Map<String, Object> handleBookingConflict(BookingConflictException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", LocalDateTime.now());
+        error.put("status", 409);
         error.put("error", ex.getMessage());
         return error;
     }
