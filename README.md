@@ -42,8 +42,17 @@ mvn clean package
 
 ## How to Run
 
+You can run the application using Maven:
+
 ```bash
 mvn spring-boot:run
+```
+
+Or build and run the executable JAR:
+
+```bash
+mvn clean package
+java -jar target/cinema-booking-api-1.0.0.jar
 ```
 
 The API runs at:
@@ -259,6 +268,49 @@ cinema-booking-api/
         └── integration/
 ```
 
+## Optional Oracle Cloud Deployment
+
+The Cinema Booking API was also deployed on Oracle Cloud Infrastructure as optional execution evidence.
+
+The application runs on an Oracle Cloud Ubuntu VM with:
+
+- Java 21
+- Maven
+- Git
+- Spring Boot application running on port 8080
+
+Public API base URL:
+
+```text
+http://79.76.55.31:8080
+```
+
+Swagger UI:
+
+```text
+http://79.76.55.31:8080/swagger-ui.html
+```
+
+Example public endpoints:
+
+```text
+GET http://79.76.55.31:8080/api/movies
+POST http://79.76.55.31:8080/api/movies
+GET http://79.76.55.31:8080/api/customers
+GET http://79.76.55.31:8080/api/screenings
+GET http://79.76.55.31:8080/api/bookings
+```
+
+The project was deployed by cloning the GitHub repository on the VM, running the automated tests, building the executable JAR, and starting the application with:
+
+```bash
+java -jar target/cinema-booking-api-1.0.0.jar
+```
+
+This cloud deployment demonstrates that the application can run outside the local development environment and can be tested through a public IP using Postman or Swagger UI.
+
+Note: The public IP is used for demonstration purposes and may be removed after grading to avoid unnecessary cloud resource usage.
+
 ## Screenshots
 
 Screenshots are included in the `screenshots` folder and show:
@@ -267,6 +319,7 @@ Screenshots are included in the `screenshots` folder and show:
 - Swagger UI
 - Postman requests and responses
 - successful test execution
+- optional Oracle Cloud deployment evidence
 
 ## Limitations
 
@@ -274,6 +327,7 @@ Screenshots are included in the `screenshots` folder and show:
 - No authentication
 - No payment system
 - No individual seat numbers
+- Oracle Cloud public IP is for demonstration and may be removed after grading
 
 ## Possible Improvements
 
@@ -281,3 +335,4 @@ Screenshots are included in the `screenshots` folder and show:
 - Add user authentication
 - Add individual seat selection
 - Add payment status
+- Add role-based access for customers and administrators
