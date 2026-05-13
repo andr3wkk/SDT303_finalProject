@@ -32,7 +32,7 @@ The system manages movies, customers, screenings, and bookings. A customer can r
 - Pagination
 - Request validation
 - JSON error responses
-- Automated unit tests
+- Automated unit and integration tests
 
 ## How to Build
 
@@ -67,9 +67,19 @@ mvn test
 Successful test result:
 
 ```text
-Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0
 BUILD SUCCESS
 ```
+
+The project includes unit tests for service logic and integration tests for REST endpoints.
+
+Test classes:
+
+- MovieServiceTest
+- CustomerServiceTest
+- ScreeningServiceTest
+- BookingServiceTest
+- CinemaApiIntegrationTest
 
 ## Main API Endpoints
 
@@ -233,6 +243,8 @@ cinema-booking-api/
 ├── README.md
 ├── docs/
 │   └── api-design.md
+├── postman/
+│   └── Cinema-Booking-API.postman_collection.json
 ├── screenshots/
 └── src/
     ├── main/java/com/example/cinema/
@@ -243,7 +255,8 @@ cinema-booking-api/
     │   ├── service/
     │   └── web/
     └── test/java/com/example/cinema/
-        └── unit/
+        ├── unit/
+        └── integration/
 ```
 
 ## Screenshots
