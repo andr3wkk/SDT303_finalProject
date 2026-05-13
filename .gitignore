@@ -40,3 +40,4 @@ build/
 ### Extra project ignores ###
 out/
 *.log
+.idea/

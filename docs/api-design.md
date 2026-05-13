@@ -137,7 +137,7 @@ The tests cover both successful and unsuccessful scenarios.
 Successful test result:
 
 ```text
-Tests run: 21, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0
 BUILD SUCCESS
 ```
 
